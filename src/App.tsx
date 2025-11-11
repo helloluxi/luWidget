@@ -311,14 +311,6 @@ function App() {
     }
   };
 
-  const handleClose = async () => {
-    try {
-      await invoke("exit_app");
-    } catch (e) {
-      console.error("Failed to close application:", e);
-    }
-  };
-
   const preventMaximize = (e: React.MouseEvent) => {
     if (e.detail === 2) {
       e.preventDefault();
@@ -343,8 +335,7 @@ function App() {
       onMouseDown={preventMaximize}
     >
       <div className="todo-header" data-tauri-drag-region>
-        <div className="todo-title">luWidget</div>
-        <button className="widget-close-btn" onClick={handleClose} title="Close">×</button>
+        <div className="todo-title">Todo</div>
       </div>
 
       <div className="todo-content" data-tauri-drag-region>
