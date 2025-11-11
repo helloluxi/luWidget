@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.3);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .notification-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .notification-message {
+      font-size: 48px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    .notification-hint {
+      font-size: 16px;
+      color: #ffffff;
+      opacity: 0.8;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="notification-container" id="notification">
+    <div class="notification-message" id="message">Time for a break!</div>
+    <div class="notification-hint">Click to dismiss</div>
+  </div>
+
+  <script type="module">
+    const invoke = window.__TAURI_INTERNALS__.invoke;
+
+    // Get message from window variable set by Rust
+    if (window.__NOTIFICATION_MESSAGE__) {
+      document.getElementById('message').textContent = window.__NOTIFICATION_MESSAGE__;
+    }
+
+    // Close on click
+    document.body.addEventListener('click', async () => {
+      await invoke('close_notification');
+    });
+  </script>
+</body>
+</html>

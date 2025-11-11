@@ -1,0 +1,40 @@
+{
+  "productName": "luWidget",
+  "version": "0.1.0",
+  "identifier": "com.luwidget.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://127.0.0.1:1420",
+    "frontendDist": "../dist"
+  },
+  "bundle": {
+    "active": false,
+    "icon": [
+      "icons/favicon.ico"
+    ]
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "luWidget",
+        "width": 340,
+        "height": 420,
+        "resizable": true,
+        "maximizable": false,
+        "decorations": false,
+        "transparent": true,
+        "visible": true,
+        "alwaysOnTop": false,
+        "skipTaskbar": true
+      }
+    ],
+    "security": {
+      "csp": null,
+      "capabilities": [
+        "default"
+      ]
+    }
+  }
+}

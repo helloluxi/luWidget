@@ -1,0 +1,86 @@
+# Claude Code
+.claude/
+config.json
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+/dist
+/dist-ssr
+/target
+/src-tauri/target
+/src-tauri/gen
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Tauri
+/src-tauri/target
+/src-tauri/WixTools
+/src-tauri/Cargo.lock
+
+# Widget data (no longer needed but keeping for safety)
+.widgets.dat
+*.dat
+
+# Temporary files
+*.tmp
+*.temp
+nul
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Cache
+.cache/
+.parcel-cache/
+.vite/
+.turbo/
+
+# Rust
+**/*.rs.bk
+*.pdb
+
+# IDE
+.vs/
+.vscode-test/
+*.code-workspace
